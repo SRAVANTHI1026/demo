@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registration Form</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="header">
+    <div class="logo">MyLogo</div>
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#">Courses</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Registration Form -->
+  <main class="form-container">
+    <h2>Register for a Course</h2>
+    <form>
+      <div class="form-grid">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="course">Course Selection</label>
+        <select id="course" name="course" required>
+          <option value="">-- Select Course --</option>
+          <option value="web">Web Development</option>
+          <option value="data">Data Science</option>
+          <option value="design">Graphic Design</option>
+        </select>
+
+        <label>Gender</label>
+        <div class="gender-options">
+          <label><input type="radio" name="gender" value="male" required /> Male</label>
+          <label><input type="radio" name="gender" value="female" /> Female</label>
+          <label><input type="radio" name="gender" value="other" /> Other</label>
+        </div>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+
+        <label for="confirm">Confirm Password</label>
+        <input type="password" id="confirm" name="confirm" required />
+      </div>
+
+      <button type="submit" class="register-btn">Register</button>
+    </form>
+  </main>
+
+</body>
+</html>
+🎨 
