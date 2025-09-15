@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Compound Interest Calculator</title>
+  <style>
+    body {
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      margin: 40px;
+    }
+    label, input {
+      display: block;
+      margin: 8px 0;
+    }
+    input[type="number"] {
+      width: 200px;
+      padding: 6px;
+    }
+    button {
+      margin-top: 12px;
+      padding: 8px 16px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Compound Interest Calculator</h1>
+  <label for="principal">Principal Amount ($):</label>
+  <input type="number" id="principal" placeholder="e.g. 1000" />
+  <label for="rate">Annual Interest Rate (%):</label>
+  <input type="number" step="0.01" id="rate" placeholder="e.g. 5" />
+  <label for="times">Times Compounded Per Year:</label>
+  <input type="number" id="times" placeholder="e.g. 4" />
+  <label for="years">Number of Years:</label>
+  <input type="number" id="years" placeholder="e.g. 10" />
+  <button onclick="calculateCompoundInterest()">Calculate</button>
+  <div id="result"></div>
+  <script>
+    function calculateCompoundInterest() {
+      const principal = parseFloat(document.getElementById('principal').value);
+      const rate = parseFloat(document.getElementById('rate').value) / 100;
+      const times = parseInt(document.getElementById('times').value);
+      const years = parseInt(document.getElementById('years').value);
+      if (isNaN(principal) || isNaN(rate) || isNaN(times) || isNaN(years)) {
+        document.getElementById('result').innerText = 'Please enter valid numbers in all fields.';
+        return;
+      }
+      const amount = principal * Math.pow((1 + rate / times), times * years);
+      const interest = amount - principal;
+      document.getElementById('result').innerHTML = `
+        After ${years} year(s),<br>
+        Principal: $${principal.toFixed(2)}<br>
+        Interest Earned: $${interest.toFixed(2)}<br>
+        Total Amount: $${amount.toFixed(2)}
+      `;
+    }
+  </script>
+</body>
+</html>
